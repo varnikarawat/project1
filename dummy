@@ -1,0 +1,20 @@
+<?php
+$servername="localhost";
+$username="root";
+$password='';
+$dbname='varnika';
+$conn=new mysqli($servername,$username,$password,$dbname);
+if($conn->connect_error){
+    echo("connection failed".$conn->connect_error);
+}
+$sql="insert into student(FIRSTNAME,SECONDNAME,EMAIL,MNO)VALUES('Farah','Khan','123@gmail.com',6543);";
+$sql.="insert into student(FIRSTNAME,SECONDNAME,EMAIL,MNO)VALUES('Sonu','Singh','876@gmail.com',654);";
+$sql.="insert into student(FIRSTNAME,SECONDNAME,EMAIL,MNO)VALUES('Monu','Joe','7654@gmail.com',643);";
+if($conn->multi_query($sql)==true){
+    echo("records inserted");
+}
+else{
+    echo("error".$sql."<br>".$conn->error);
+}
+$conn->close();
+?>
