@@ -16,5 +16,5 @@ if($conn->multi_query($sql)==true){
 else{
     echo("error".$sql."<br>".$conn->error);
 }
-$conn->close();
+
 ?>
